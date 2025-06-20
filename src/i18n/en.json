@@ -1,0 +1,23 @@
+{
+  "title": "Letter Management System",
+  "subtitle": "Space Science and Geospatial Institute (SSGI)",
+  "description": "A centralized platform designed for SSGI to manage, track, and organize official correspondence with precision, security, and efficiency.",
+  "login": "Log In",
+  "featuresTitle": "Empowering SSGI's Communication Flow",
+  "featuresDescription": "Launch your digital transformation journey today.",
+  "ctaTitle1": "Ready to get started?",
+  "ctaTitle2": "Start your free trial today.",
+
+  "feature1": "Smart Document Management",
+  "featureDesc1": "Efficiently organize and manage all your business correspondence in one place.",
+  "feature2": "Real-time Tracking",
+  "featureDesc2": "Track the status of your letters and documents in real-time.",
+  "feature3": "Advanced Security",
+  "featureDesc3": "Enterprise-grade security to keep your sensitive documents safe.",
+  "feature4": "Powerful Search",
+  "featureDesc4": "Find any document instantly with our advanced search capabilities.",
+  "feature5": "Automated Workflows",
+  "featureDesc5": "Streamline your approval processes with automated workflows.",
+  "feature6": "Analytics & Insights",
+  "featureDesc6": "Gain valuable insights into your document workflows."
+}
