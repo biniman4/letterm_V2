@@ -16,6 +16,8 @@ import {
   SendIcon,
   UserIcon,
   LockIcon,
+  CodeIcon,
+  ShieldIcon,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../../components/pages/LanguageContext";
@@ -123,6 +125,41 @@ const Home = ({ onLogin }: { onLogin: () => void }): JSX.Element => {
     }
   };
 
+  // Development login functions
+  const handleDevUserLogin = () => {
+    // Create a mock user for development
+    const mockUser = {
+      _id: "dev-user-123",
+      name: "Dev User",
+      email: "dev.user@ssgi.gov.et",
+      role: "user",
+      departmentOrSector: "Development Department",
+      phone: "+251-123-456-789"
+    };
+    
+    localStorage.setItem("user", JSON.stringify(mockUser));
+    localStorage.setItem("userId", mockUser._id);
+    onLogin();
+    navigate("/dashboard");
+  };
+
+  const handleDevAdminLogin = () => {
+    // Create a mock admin for development
+    const mockAdmin = {
+      _id: "dev-admin-123",
+      name: "Dev Admin",
+      email: "dev.admin@ssgi.gov.et",
+      role: "admin",
+      departmentOrSector: "Administration",
+      phone: "+251-987-654-321"
+    };
+    
+    localStorage.setItem("user", JSON.stringify(mockAdmin));
+    localStorage.setItem("userId", mockAdmin._id);
+    onLogin();
+    navigate("/admin");
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#FAFBFF]">
       <PublicNavbar lang={lang} onLanguageChange={setLang} />
@@ -203,13 +240,37 @@ const Home = ({ onLogin }: { onLogin: () => void }): JSX.Element => {
                     </motion.span>
                   ))}
                 </motion.p>
-                <div className="mt-10 flex justify-center">
+                <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
                   <button
                     onClick={() => navigate('/login')}
                     className="px-12 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold text-lg shadow-lg hover:from-blue-700 hover:to-blue-900 transition duration-300 transform hover:scale-105"
                   >
                     {t.home.login}
                   </button>
+                  
+                  {/* Development Login Buttons */}
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <button
+                      onClick={handleDevUserLogin}
+                      className="px-6 py-3 rounded-lg bg-gradient-to-r from-green-500 to-green-600 text-white font-medium text-sm shadow-md hover:from-green-600 hover:to-green-700 transition duration-300 transform hover:scale-105 flex items-center gap-2"
+                    >
+                      <CodeIcon className="w-4 h-4" />
+                      Log here for free (User)
+                    </button>
+                    <button
+                      onClick={handleDevAdminLogin}
+                      className="px-6 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 text-white font-medium text-sm shadow-md hover:from-purple-600 hover:to-purple-700 transition duration-300 transform hover:scale-105 flex items-center gap-2"
+                    >
+                      <ShieldIcon className="w-4 h-4" />
+                      Log as admin for free
+                    </button>
+                  </div>
+                </div>
+                
+                {/* Development Notice */}
+                <div className="mt-4 text-xs text-gray-500 bg-yellow-50 border border-yellow-200 rounded-lg p-2 max-w-md mx-auto">
+                  <CodeIcon className="w-3 h-3 inline mr-1" />
+                  Development Mode: Quick login buttons for testing purposes
                 </div>
               </motion.div>
             </div>
